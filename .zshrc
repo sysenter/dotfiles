@@ -1,11 +1,6 @@
-# source /etc/zsh/zprofile
+source ~/.zprofile
 
-export LANG='en_UK.UTF-8'
-export LC_ALL='en_UK.UTF-8'
-export LC_CTYPE='en_UK.UTF-8'
-export LC_COLLATE="C"
-
-PATH=".:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/usr/X11/bin:/usr/local/sbin/:$PATH"
+PATH=".:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/usr/X11/bin:/usr/local/sbin/:/opt/local/bin/:/opt/local/sbin/:$PATH"
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
@@ -70,7 +65,7 @@ alias update="sudo softwareupdate --download --all --install"
 alias dfix="diskutil repairPermissions /Volumes/Aluminium"
 alias gc='gcc -ansi -pedantic -Wall -W -Wshadow -Wcast-qual -Wwrite-strings -Wextra -Werror -fstrength-reduce -fomit-frame-pointer -finline-functions '
 alias gs='gcc -Wall -Wextra -pedantic'
-alias chat='ssh -2 devio.us -t "screen -d ; screen -r"'
+alias chat='ssh ssh.blinkenshell.org -p 2222 -t "tmux a"'
 alias t='todo'
 alias td='todo --database ~/.todo.daily'
 alias ts='todo --database ~/.todo.schedule'
@@ -238,7 +233,6 @@ ompload() {
     print
   }';
 }
-
 #------------------------------
 # Comp stuff
 #------------------------------
@@ -308,11 +302,11 @@ setprompt () {
   fi
 
   # set the prompt
-  # echo `fortune`
+  echo `fortune`
   PS1=$'%B%{\e[0;36m%}[%{\e[0;33m%}%n%{\e[0;36m%}@%{\e[0;33m%}%m%{\e[0;36m%}](%{\e[0;33m%}%~%{\e[0;36m%}) %{\e[0;15m%]'
+
 }
-#autox
+
 setprompt
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
-
